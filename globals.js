@@ -1,0 +1,31 @@
+export const state = {
+  room: new WebsimSocket(),
+  peers: {},
+  scene: null,
+  camera: null,
+  renderer: null,
+  controls: null,
+  raycaster: new THREE.Raycaster(),
+  mouse: new THREE.Vector2(),
+  gridBlocks: {},
+  placementPreview: null,
+  groundPlane: null,
+  loadedModels: [],
+  selectedModel: null,
+  modelPreview: null,
+  placedAssets: [],
+  selectedPlacedAsset: null,
+  assetIdCounter: 0,
+  loader: new THREE.GLTFLoader(),
+  actionHistory: [],
+  redoHistory: [],
+  MAX_REDO_HISTORY: 100,
+  debugInfo: {
+    mousePosition: { x: 0, y: 0 },
+    normalizedMouse: { x: 0, y: 0 },
+    raycastHit: null,
+    gridPosition: null,
+    cameraPosition: null,
+    lastAction: null
+  }
+};
