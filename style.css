@@ -65,7 +65,7 @@ body {
   cursor: pointer;
   word-break: break-word;
   position: relative;
-  padding-right: 30px;
+  padding-right: 30px; /* Space for delete button */
 }
 .asset-item.selected-asset {
   background-color: #666;
@@ -201,15 +201,18 @@ body {
   font-size: 14px;
   padding: 0;
 }
+
 .delete-asset-btn:hover {
   background: #ff0000;
 }
+
 .asset-name {
   padding-right: 25px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .asset-type-select {
   margin: 5px 0;
   padding: 4px;
@@ -219,14 +222,17 @@ body {
   border-radius: 4px;
   width: 100%;
 }
+
 .asset-type-select:focus {
   outline: none;
   border-color: #888;
 }
+
 .asset-type-select option {
   background: #333;
   color: white;
 }
+
 .section-header {
   display: flex;
   align-items: center;
@@ -239,13 +245,16 @@ body {
   font-size: 12px;
   user-select: none;
 }
+
 .section-header h3 {
   margin: 0;
   font-size: 12px;
 }
+
 .section-header:hover {
   background: #555;
 }
+
 .section-content {
   max-height: 300px;
   overflow-y: auto;
@@ -255,19 +264,24 @@ body {
   scrollbar-color: #666 #333;
   display: none;
 }
+
 .section-content.expanded {
   display: block;
 }
+
 .section-content::-webkit-scrollbar {
   width: 8px;
 }
+
 .section-content::-webkit-scrollbar-track {
   background: #333;
 }
+
 .section-content::-webkit-scrollbar-thumb {
   background-color: #666;
   border-radius: 4px;
 }
+
 .toolbar-section {
   position: relative;
   transition: transform 0.2s ease, background-color 0.2s ease;
@@ -275,29 +289,34 @@ body {
   border-radius: 4px;
   margin: 2px 0;
 }
+
 .toolbar-section.dragging {
   position: fixed;
   width: 280px;
   z-index: 1002;
   pointer-events: none;
 }
+
 .toolbar-section.drop-target {
   position: relative;
   margin-top: 20px;
   margin-bottom: 20px;
   transition: margin 0.2s ease;
 }
+
 .block-settings {
   padding: 10px;
   background: #444;
   border-radius: 4px;
   margin-bottom: 10px;
 }
+
 .block-settings input[type="color"] {
   width: 100%;
   height: 40px;
   margin: 5px 0;
 }
+
 .block-item {
   padding: 10px;
   background: #444;
@@ -305,9 +324,12 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .block-item.selected-block {
   background-color: #666;
 }
+
+/* Styles for online users */
 .user-item {
   display: flex;
   align-items: center;
@@ -317,9 +339,12 @@ body {
   margin-bottom: 5px;
   border-radius: 4px;
 }
+
 .user-item img {
   border-radius: 50%;
 }
+
+/* Styles for block selection outline */
 .block-outline {
   position: absolute;
   border: 2px solid #0088ff; 
@@ -329,18 +354,21 @@ body {
   height: 50px;
   transition: all 0.2s ease;
 }
+
 .rotation-controls {
   display: flex;
   flex-direction: column;
   gap: 5px;
   margin-top: 10px;
 }
+
 .rotation-axis {
   display: flex;
   align-items: center;
   gap: 5px;
   position: relative;
 }
+
 .rotation-axis input[type="number"] {
   width: 60px;
   background: #333;
@@ -350,17 +378,20 @@ body {
   padding: 2px 4px;
   margin-left: 5px;
 }
+
 .rotation-axis input[type="number"]::-webkit-inner-spin-button,
 .rotation-axis input[type="number"]::-webkit-outer-spin-button {
   opacity: 1;
   height: 20px;
 }
+
 .default-rotation-controls {
   margin-top: 10px;
   padding: 8px;
   background: #333;
   border-radius: 4px;
 }
+
 .rotation-label {
   display: block;
   margin-bottom: 5px;
