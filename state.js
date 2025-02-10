@@ -1,3 +1,4 @@
+// state.js – Holds all shared global variables
 export const state = {
   room: new WebsimSocket(),
   peers: {},
@@ -16,16 +17,24 @@ export const state = {
   placedAssets: [],
   selectedPlacedAsset: null,
   assetIdCounter: 0,
+  selectedBlock: null,
   loader: new THREE.GLTFLoader(),
   actionHistory: [],
   redoHistory: [],
   MAX_REDO_HISTORY: 100,
+  actionHistoryUI: null,
   debugInfo: {
     mousePosition: { x: 0, y: 0 },
     normalizedMouse: { x: 0, y: 0 },
     raycastHit: null,
     gridPosition: null,
     cameraPosition: null,
-    lastAction: null
-  }
+    lastAction: null,
+  },
+  draggingSectionHeader: null,
+  sections: [],
+  dragStartY: 0,
+  initialBlockColor: null,
+  assetTypeOptions: ["scene object", "player", "npc", "texture"],
+  loadedTextures: [],
 };
