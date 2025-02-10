@@ -69,7 +69,10 @@ export function addBlock(position, blockType = document.getElementById('block-ty
   block.userData.blockType = blockType;
   block.userData.orientation = orientation;
   const adjustedX = position.x + 0.5;
-  const adjustedY = position.y + (blockType === 'full' ? 0.5 : blockType === 'half' ? 0.25 : blockType === 'stair' ? 0.0 : 0.25);
+  const adjustedY = blockType === 'full' ? position.y + 0.5
+                    : blockType === 'half' ? position.y + 0.25
+                    : blockType === 'stair' ? position.y - 0.25
+                    : position.y + 0.25;
   const adjustedZ = position.z + 0.5;
   block.position.set(adjustedX, adjustedY, adjustedZ);
   block.rotation.y = rotation;
@@ -174,6 +177,10 @@ export function addBlockOutline(block) {
   const outline = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x0088ff, linewidth: 2 }));
   outline.position.copy(block.position);
   outline.rotation.copy(block.rotation);
+  // For stair blocks, adjust the outline upward by 0.25 to fix the offset
+  if(block.userData.blockType === 'stair'){
+    outline.position.y += 0.25;
+  }
   outline.scale.set(1.02, 1.02, 1.02);
   state.scene.add(outline);
   block.userData.outline = outline;

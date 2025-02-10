@@ -282,6 +282,42 @@ export function initEventHandlers() {
     }
   });
   
+  document.getElementById('block-orientation').addEventListener('change', e => {
+    if (state.selectedBlock) {
+      const newOrientation = e.target.value;
+      const previousOrientation = state.selectedBlock.userData.orientation;
+      state.selectedBlock.userData.orientation = newOrientation;
+      let rotation = 0;
+      switch (newOrientation) {
+        case 'east':
+          rotation = Math.PI / 2;
+          break;
+        case 'south':
+          rotation = Math.PI;
+          break;
+        case 'west':
+          rotation = -Math.PI / 2;
+          break;
+        default:
+          rotation = 0;
+      }
+      state.selectedBlock.rotation.y = rotation;
+      state.debugInfo.lastAction = `Changed block orientation at ${state.selectedBlock.userData.key}`;
+      import("../modules/actionManager.js").then(module => {
+        module.addActionToHistory(state.debugInfo.lastAction, {
+          type: 'changeBlockOrientation',
+          block: state.selectedBlock,
+          key: state.selectedBlock.userData.key,
+          previousOrientation: previousOrientation,
+          newOrientation: newOrientation
+        });
+      });
+      import("../modules/blockManager.js").then(module => {
+        module.updateBlocksList();
+      });
+    }
+  });
+  
   document.getElementById('model-input').addEventListener('change', event => {
     if (event.target.files.length > 0) {
       import("../modules/assetManager.js").then(module => {
