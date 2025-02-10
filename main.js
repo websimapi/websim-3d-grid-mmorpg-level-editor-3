@@ -1880,7 +1880,6 @@ function selectColor(block) {
   updateDebugInfo();
 }
 
-function init();
 init();
 animate();
 
