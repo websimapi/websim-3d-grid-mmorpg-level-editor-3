@@ -1,4 +1,5 @@
 const room = new WebsimSocket();
+window.room = room;
 let peers = {};
 let scene, camera, renderer, controls;
 let raycaster = new THREE.Raycaster();
